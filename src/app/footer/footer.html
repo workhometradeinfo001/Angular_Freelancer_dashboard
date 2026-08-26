@@ -1,0 +1,20 @@
+<div class="card p-3 rounded-bottom-0">
+    <div class=" d-flex justify-content-between">
+        <div>
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="mb-0 me-1">&copy;</p>
+                <p class="mb-0">2026 Togo-Work LLC. All rights reserved</p>
+            </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            @for(data of footerLeftData; track data.id){
+                <a routerLink={{data.route}} class="link-dark 
+                link-underline-opacity-0 
+                link-underline-opacity-100-hover me-3
+                courser
+                ">
+                {{data.data}}</a>
+            }
+        </div>
+    </div>
+</div>
