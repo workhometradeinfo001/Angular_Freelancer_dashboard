@@ -7,13 +7,13 @@
             </div>
         </div>
         <div class="col-6 d-flex justify-content-end">
-            @for(data of footerLeftData; track data.id){
-                <a routerLink={{data.route}} class="link-dark 
+            @for(route of footerLeftData; track route.id){
+                <a routerLinkActive="active" [routerLink]="route.route" class="link-dark 
                 link-underline-opacity-0 
                 link-underline-opacity-100-hover me-3
                 courser
                 ">
-                {{data.data}}</a>
+                {{route.data}}</a>
             }
         </div>
     </div>

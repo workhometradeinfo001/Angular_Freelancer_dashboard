@@ -1,0 +1,9 @@
+p, li {
+    white-space: pre-line; 
+    font-size: 14px;
+    color: rgb(82, 80, 80);
+}
+h4 {
+    white-space: pre-line;
+    font-size: large;
+}

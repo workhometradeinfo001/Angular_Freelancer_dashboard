@@ -1,1 +1,108 @@
-<p>privacy works!</p>
+<div class="flex-container">
+    <div class="container">
+        <div class="row w-100 d-flex justify-content-center mt-5">
+            <div class="col-10 mb-0">
+                <h3>{{headingText}}</h3>
+                <p class="mb-0">{{headingPara}}</p>
+            </div>
+        </div>
+        <hr />
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                @for(col of contentArray; track col.id){
+                @if(col.id != 5 && col.id != 12 && col.id != 21 && col.id != 22 && col.id != 23){
+                <div class="col-12">
+                    <h4>{{col.heading}}</h4>
+                    <p class="mb-4">{{col.content}}</p>
+                </div>
+                }@else if(col.id == 5){
+                <h4>{{col.heading}}</h4>
+                @for(item of col.content; track item; let isFirst = $first){
+                @if(isFirst){
+                <p>{{item}}</p>
+                }@else{
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+
+                }@else if(col.id == 12){
+                <h4>{{col.heading}}</h4>
+                @for(item of col.content; track item; let isFirst = $first){
+                @if(isFirst){
+                <p>{{item}}</p>
+                }@else{
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                }@else if(col.id == 21){
+                <h4>{{col.heading}}</h4>
+                @for (item of col.content.at(0); track item; let isFirst = $first) {
+                @if (isFirst) {
+                <p class="fw-bold">{{item}}</p>
+                }@else {
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                @for (item of col.content.at(1); track item; let isFirst = $first) {
+                @if (isFirst) {
+                <p class="fw-bold">{{item}}</p>
+                }@else {
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                @for (item of col.content.at(2); track item; let isFirst = $first) {
+                @if (isFirst) {
+                <p class="fw-bold">{{item}}</p>
+                }@else {
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                @for (item of col.content.at(3); track item; let isFirst = $first) {
+                @if (isFirst) {
+                <p class="fw-bold">{{item}}</p>
+                }@else {
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                }@else if (col.id == 22) {
+                <h4>{{col.heading}}</h4>
+                @for (item of col.content; track item; let isFirst = $first) {
+                @if (isFirst) {
+                <p>{{item}}</p>
+                }@else {
+                <ul>
+                    <li>{{item}}</li>
+                </ul>
+                }
+                }
+                }@else if (col.id == 23) {
+                <h4>{{col.heading}}</h4>
+                @for (item of col.content.at(0); track item; let i = $index;) {
+                @if (i == 0) {
+                <p>{{item}}</p>
+                }@else if (i == 1){
+                <h4>{{item}}</h4>
+                }@else if (i == 2) {
+                <p>{{item}}</p>
+                }
+                }
+                }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

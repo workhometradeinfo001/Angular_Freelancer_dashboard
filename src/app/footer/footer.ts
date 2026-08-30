@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-footer',
   styleUrl: './footer.css',
   templateUrl: './footer.html',
@@ -13,17 +13,17 @@ export class Footer {
     {
       id: 1,
       data: "Terms",
-      route: "terms"
+      route: "/terms"
     },
     {
       id: 2,
       data: "Privacy",
-      route: "privacy"
+      route: "/privacy"
     },
     {
       id: 3,
       data: "Contact",
-      route: "contact"
+      route: "/contact"
     }
   ]
 
