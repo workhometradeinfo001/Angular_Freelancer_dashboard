@@ -1,0 +1,28 @@
+/* Custom Cursor Utility */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Custom Background Hover Utility */
+.bg-hover-secondary {
+  background-color: var(--bs-light);
+  color: var(--bs-dark);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Hover: Light-secondary state */
+.bg-hover-secondary:hover {
+  background-color: var(--bs-secondary-bg-subtle) !important; /* Soft Bootstrap secondary background */
+  color: var(--bs-body-color) !important;
+}
+
+/* Ensures muted subtext stays readable on hover */
+.bg-hover-secondary:hover .text-muted {
+  color: var(--bs-secondary-color) !important;
+}
+p{
+  font-size: 12px;
+}
+.largeMarginTop{
+  margin-top: 150px;
+}

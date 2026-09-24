@@ -3,14 +3,16 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <h2>{{upperHeading}}</h2>
-                <p>{{upperText}}</p>
+                <p class="fs-6">{{upperText}}</p>
             </div>
         </div>
     </div>
     <hr />
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 card p-4">
+                <h4>{{boxHeading}}</h4>
+                <p class="mb-3">{{boxText}}</p>
                 <div class="d-flex justify-content-between">
                     <div class="me-2 w-100">
                         <app-label fontSize="14px" text="First/Given Name"></app-label>
@@ -22,16 +24,107 @@
                     </div>
                 </div>
                 <div class="w-100 mt-3">
-                    <app-label text="Email"></app-label>
+                    <app-label text="Email" fontSize="14px"></app-label>
                     <app-input [inputType]="'email'" placeHolder="Enter your email"></app-input>
                 </div>
                 <div class="w-100 mt-3">
-                    <app-select classSelete="w-100 form-select bg-light border-light-1" [itemsList]="items"></app-select>
+                    <app-label text="Subject" fontSize="14px"></app-label>
+                    <app-select classSelete="w-100 form-select bg-light border-light-1"
+                        [itemsList]="items"></app-select>
                 </div>
+                <div class="w-100 mt-3">
+                    <app-label text="Your Message" fontSize="14px"></app-label>
+                    <app-textarea classTextarea="form-control" idTextarea="exampleFormControlTextarea1"
+                        rowTextarea="3"></app-textarea>
+                </div>
+                <button class="btn btn-success mt-3 fs-6">Send Message <i class="fa-regular fa-paper-plane"
+                        style="color: rgb(254, 254, 255);"></i></button>
             </div>
             <div class="col-6">
-
+                <div class="card">
+                    <div class="row">
+                        <h6 class="ms-3 mt-3">Or Reach Us Directly</h6>
+                        <p class="ms-3">For specific inquiries, contact the relevant department directly</p>
+                        <div class="col-12">
+                            @for (item of btnItems; track item; let index = $index;) {
+                            <div
+                                class="d-flex justify-content-start align-items-center bg-light bg-hover-secondary ms-5 me-5 mt-2 mb-2 p-2 rounded transition-all cursor-pointer">
+                                @if (index == 0) {<i class="ms-2 fa-solid fa-headset"
+                                    style="color: rgb(55, 180, 87);"></i>}
+                                @if (index == 1) {<i class="ms-2 fa-solid fa-scale-balanced"
+                                    style="color: rgb(55, 180, 87);"></i>}
+                                @if (index == 2) {<i class="ms-2 fa-regular fa-envelope"
+                                    style="color: rgb(55, 180, 87);"></i>}
+                                <div class="d-flex flex-column justify-content-center ms-3">
+                                    <p class="mb-0 text-start" style="font-size: small;">{{item.heading}}</p>
+                                    <p class="mb-0 text-start" style="font-size: small;">{{item.text}}</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long w-100 text-end me-3"
+                                    style="color: rgb(55, 180, 87);"></i>
+                            </div>
+                            }
+                            <hr class="m-3" />
+                        </div>
+                        <div class="col-12">
+                            <div class="ms-5 me-5 p-2">
+                                @for (item of secondBox; track item; let index = $index) {
+                                <div class="d-flex justify-content-start">
+                                    @if (index == 0) {
+                                    <i class="fa-solid fa-building-user" style="color: rgb(55, 180, 178);"></i>
+                                    }
+                                    @if (index == 1) {
+                                    <i class="fa-solid fa-location-crosshairs" style="color: rgb(55, 180, 178);"></i>
+                                    }
+                                    @if (index == 2) {
+                                    <i class="fa-regular fa-clock" style="color: rgb(55, 180, 178);"></i>
+                                    }
+                                    <h6 class="ms-1">{{item.heading}}</h6>
+                                </div>
+                                <p>{{item.address}}</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 largeMarginTop">
+                <div class="d-flex justify-content-center">
+                    <i class="fa-solid fa-magnifying-glass-location" style="color: rgb(55, 180, 178);"></i>
+                    <h6>Visit Us</h6>
+                </div>
+                <h4 class="w-100 text-center mt-3">Our Operations Office</h4>
+                <p class="fs-6 text-center">Customer support and platform moderation are run from our office in Gazipur,
+                    Bangladesh. Drop in or get directions on the map.</p>
+                <div class="row mb-5">
+                    <div class="col-4 card p-4 d-flex justify-content-between flex-column">
+                        <div>
+                            @for (item of thirdBox; track item; let index = $index) {
+                            <div class="d-flex justify-content-start">
+                                @if (index == 0) {<i class="fa-solid fa-briefcase"
+                                    style="color: rgb(55, 180, 178);"></i>}
+                                @if (index == 1) {<i class="fa-solid fa-city" style="color: rgb(55, 180, 178);"></i>}
+                                <h6 class="ms-1">{{item.heading}}</h6>
+                            </div>
+                            <p class="w-50">{{item.text}}</p>
+                            }
+                        </div>
+                        <button class="btn btn-outline-success mt-5">Open Location<i
+                                class="ms-2 fa-solid fa-arrow-up-right-from-square"
+                                style="color: rgb(55, 180, 178);"></i></button>
+                    </div>
+                    <div class="col-8">
+                        <div class="card shadow-sm border-0 rounded overflow-hidden">
+                            <!-- Bootstrap 5 ratio utility for responsive height -->
+                            <div class="ratio ratio-16x9">
+                                <iframe [src]="mapUrl" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<app-footer></app-footer>
