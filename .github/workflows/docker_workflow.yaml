@@ -14,7 +14,7 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v4
      - name: Build docker image
-       run: docker build -t ${{secrets.ACR_LOGIN_SERVER}}/${{secrets.IMAGE_NAME}}:${{secrets.IMAGE_VERSION}} .
+       run: docker build -f togo_dashboard/Dashboard/DockerFile -t ${{secrets.ACR_LOGIN_SERVER}}/${{secrets.IMAGE_NAME}}:${{secrets.IMAGE_VERSION}} togo_dashboard/Dashboard/
 
      - name: Login ACR
        uses: docker/login-action@v4
