@@ -39,7 +39,7 @@ jobs:
           --resource-group ${{secrets.ACR_RESOURCE_GROUP}} \
           --environment togo-environment \
           --location southeastasia \
-          --image ${{secrets.ACR_LOGIN_SERVER}}/${{secrets.IMAGE_NAME}}:${{secrets.IMAGE_VERSION_ONE}} \
+          --image ${{secrets.ACR_LOGIN_SERVER}}/${{secrets.IMAGE_NAME}}:${{secrets.IMAGE_VERSION}} \
           --registry-server ${{secrets.ACR_LOGIN_SERVER}} \
           --registry-username ${{secrets.ACR_USER_NAME}} \
           --registry-password ${{secrets.ACR_PASSWORD}} \
