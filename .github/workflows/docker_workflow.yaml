@@ -26,3 +26,5 @@ jobs:
      - name: Push docker image
        run: docker push ${{secrets.ACR_LOGIN_SERVER}}/${{secrets.IMAGE_NAME}}:${{secrets.IMAGE_VERSION}}
    
+     - name: After Success
+       run: echo "Success"
