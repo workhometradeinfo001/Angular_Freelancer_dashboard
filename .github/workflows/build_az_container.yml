@@ -35,7 +35,7 @@ jobs:
       - name: Create Container
         run: |
           az containerapp up \
-          --name freelancer_dashboard \
+          --name freelancer-dashboard \
           --resource-group ${{secrets.ACR_RESOURCE_GROUP}} \
           --environment togo-environment \
           --location southeastasia \
