@@ -1,6 +1,11 @@
 import { isPlatformBrowser, JsonPipe } from "@angular/common";
-import { inject, PLATFORM_ID } from "@angular/core";
+import { inject, Injectable, PLATFORM_ID } from "@angular/core";
 
+
+
+@Injectable({
+    providedIn: "root"
+})
 
 export class StorageService {
 
