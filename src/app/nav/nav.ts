@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { StorageService } from '../../slice/storage.service';
 
 @Component({
   imports: [RouterLink, RouterLinkActive],
@@ -9,7 +10,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Nav {
 
-  title: string= "Togo-Work";
+  private storage = inject(StorageService);
+
+  title: string = "Togo-Work";
   profileMenu = [
     {
       id: 1,
@@ -17,19 +20,19 @@ export class Nav {
       icon: "fa-brands fa-expeditedssl me-1",
       route: "verifyid"
     },
-     {
+    {
       id: 2,
       item: "Profile",
       icon: "fa-regular fa-circle-user me-1",
       route: "profile"
     },
-     {
+    {
       id: 3,
       item: "Setting",
       icon: "fa-solid fa-gear me-1",
       route: "setting"
     },
-     {
+    {
       id: 4,
       item: "Logout",
       icon: "fa-solid fa-arrow-right-from-bracket me-1",
@@ -37,5 +40,20 @@ export class Nav {
     }
 
   ]
+
+  onPmenuClick(menu: any) {
+    switch (menu.route) {
+      case "verifyid":
+        break;
+      case "profile":
+        break;
+      case "setting":
+        break;
+      case "logout":
+        this.storage.clearData();
+        break;
+    }
+  }
+
 
 }
