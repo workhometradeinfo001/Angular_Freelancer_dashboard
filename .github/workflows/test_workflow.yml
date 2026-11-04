@@ -22,6 +22,18 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Create Environment Slice
+        run: |
+          mkdir -p src/app/slice
+          echo "export const environment = {" > src/app/slice/environment.ts
+          echo " production: true," >> src/app/slice/environment.ts
+          echo " reactCloudUri: '${{secrets.reactCloudUri}}'" >> src/app/slice/environment.ts
+          echo "};" >> src/app/slice/environment.ts
+
+          # Verify the file was created (optional debug step)
+      - name: Check environment file content
+        run: cat src/app/slice/environment.ts
+
       - name: Test process
         run: npm run test -- --watch=false
 

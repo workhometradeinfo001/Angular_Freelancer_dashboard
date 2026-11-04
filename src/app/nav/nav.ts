@@ -48,7 +48,7 @@ export class Nav {
       case "setting":
         break;
       case "logout":
-        window.location.href = `${environment.reactLocalUri}/?auth=logout`;
+        window.location.href = `${environment.reactCloudUri}/?auth=logout`;
         break;
     }
   }
