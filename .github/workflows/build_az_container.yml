@@ -43,6 +43,6 @@ jobs:
           --registry-server ${{secrets.ACR_LOGIN_SERVER}} \
           --registry-username ${{secrets.ACR_USER_NAME}} \
           --registry-password ${{secrets.ACR_PASSWORD}} \
-          --target-port 4200 \
+          --target-port 80 \
           --ingress external
           
