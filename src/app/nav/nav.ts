@@ -55,7 +55,6 @@ export class Nav {
         const targetUri = environment.reactCloudUri;
         if (targetUri) {
           window.location.href = `${targetUri}/?auth=logout`;
-          console.log(targetUri+"/?auth=logout");
         } else {
           window.location.href = `/login`;
         }

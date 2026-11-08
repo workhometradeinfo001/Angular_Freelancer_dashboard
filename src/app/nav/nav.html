@@ -38,11 +38,13 @@
                     aria-haspopup="true" aria-labelledby="navbarDropdown">
                     <i class="fa-regular fa-circle-user"></i> user name
                 </a>
-                <div class="dropdown-menu" style="width: 250px;" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu shadow-sm" style="width: 250px;" aria-labelledby="navbarDropdown">
                     @for(pmenu of profileMenu; track pmenu.id){
-                    <a class="dropdown-item p-2 m-0 cursor-pointer" (click)="onPmenuClick(pmenu)">
-                        <i class={{pmenu.icon}}></i>{{pmenu.item}}
-                    </a>
+                    <button type="button"
+                        class="dropdown-item p-2 m-0 cursor-pointer w-100 text-start bg-transparent border-0 rounded-0 transition-all"
+                        (click)="onPmenuClick(pmenu)">
+                        <i class="{{pmenu.icon}} me-2"></i>{{pmenu.item}}
+                    </button>
                     @if(pmenu.id == 1 || pmenu.id == 2 || pmenu.id == 3){
                     <hr class="m-0" />
                     }
