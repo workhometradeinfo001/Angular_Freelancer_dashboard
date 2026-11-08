@@ -52,19 +52,8 @@ export class Nav {
       case "logout":
         this.storage.clearData();
         sessionStorage.clear();
-        if (typeof window !== 'undefined' && (window as any).google?.accounts?.id) {
-          try {
-            (window as any).google.accounts.id.disableAutoSelect();
-          } catch (e) {
-            // Ignore if not initialized
-          }
-        }
         const targetUri = environment.reactCloudUri;
-        console.log(targetUri)
-
-        setTimeout(() => {
-          window.location.replace(targetUri);
-        }, 50);
+        window.location.href = targetUri+"/?auth=logout";
         break;
     }
   }
