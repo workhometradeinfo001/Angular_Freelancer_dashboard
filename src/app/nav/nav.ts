@@ -53,7 +53,12 @@ export class Nav {
         this.storage.clearData();
         sessionStorage.clear();
         const targetUri = environment.reactCloudUri;
-        window.location.href = targetUri+"/?auth=logout";
+        if (targetUri) {
+          window.location.href = targetUri + "/?auth=logout";
+
+        }else {
+          console.log(targetUri);
+        }
         break;
     }
   }
