@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { environment } from '../../slice/environment';
+import { StorageService } from '../../slice/storage.service';
 
 @Component({
   imports: [RouterLink, RouterLinkActive],
@@ -10,6 +11,7 @@ import { environment } from '../../slice/environment';
 })
 export class Nav {
 
+  private storage = inject(StorageService);
   title: string = "Togo-Work";
   profileMenu = [
     {
@@ -48,7 +50,15 @@ export class Nav {
       case "setting":
         break;
       case "logout":
-        window.location.href = `${environment.reactCloudUri}/?auth=logout`;
+        this.storage.clearData();
+        sessionStorage.clear();
+        const targetUri = environment.reactCloudUri;
+        if (targetUri) {
+          window.location.href = `${targetUri}/?auth=logout`;
+        } else {
+          window.location.href = `/login`;
+        }
+
         break;
     }
   }
