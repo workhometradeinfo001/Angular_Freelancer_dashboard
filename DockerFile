@@ -26,6 +26,9 @@ FROM nginx:alpine
 # Copy built static files from Stage 1 into Nginx
 COPY --from=builder /app/dist/Dashboard/browser /usr/share/nginx/html
 
+# Copy your custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # 4. Change EXPOSE to port 80 to match Azure's target port
 EXPOSE 80
 
