@@ -41,8 +41,10 @@
                 <div class="dropdown-menu shadow-sm" style="width: 250px;" aria-labelledby="navbarDropdown">
                     @for(pmenu of profileMenu; track pmenu.id){
                     <button type="button"
-                        class="dropdown-item p-2 m-0 cursor-pointer w-100 text-start bg-transparent border-0 rounded-0 transition-all"
-                        (click)="onPmenuClick(pmenu)">
+                        class="dropdown-item p-2 m-0 cursor-pointer w-100 text-start bg-transparent border-0"
+                        style="transition: background-color 0.2s ease;"
+                        onmouseover="this.style.backgroundColor='#f8f9fa'"
+                        onmouseout="this.style.backgroundColor='transparent'" (click)="onPmenuClick(pmenu)">
                         <i class="{{pmenu.icon}} me-2"></i>{{pmenu.item}}
                     </button>
                     @if(pmenu.id == 1 || pmenu.id == 2 || pmenu.id == 3){
